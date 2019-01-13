@@ -31,9 +31,9 @@ class App extends Component {
     }));
   };
 
-  deleteTodo = item => {
+  deleteTodo = (item, key) => {
     this.setState(({ todos }) => ({
-      todos: todos.filter((todo) => todo.id != item.id)
+      todos: todos.filter((todo) => todo.id !== item.id)
     }));
   };
 
@@ -44,9 +44,9 @@ class App extends Component {
           {this.state.todos.map((item, key) =>{
             return(
               <ToDoItem
-                kye={key}
+                key={key}
                 text={item.text}
-                deleteTodo={this.deleteTodo.bind(this, key)}
+                deleteTodo={this.deleteTodo.bind(this, item)}
               />
             )
           })}
