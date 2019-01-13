@@ -31,7 +31,7 @@ class App extends Component {
     }));
   };
 
-  deleteTodo = (item, key) => {
+  deleteTodo = item => {
     this.setState(({ todos }) => ({
       todos: todos.filter((todo) => todo.id !== item.id)
     }));
@@ -49,14 +49,14 @@ class App extends Component {
       todos: tempTodos
     }));
   };
-  /* データの永続化 */
+  /* データの永続化*/
   componentDidUpdate() {
     localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
   /* データの読み込み*/
   componentDidMount() {
     this.setState({
-      todos: JSON.parse(localStorage.getItem('todos')) || []
+      todos: JSON.parse(localStorage.getItem('todos'))
     });
   }
 
