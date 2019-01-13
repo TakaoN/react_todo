@@ -1,1 +1,29 @@
-
+body{
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+}
+.App{
+  width: 300px;
+  margin: auto;
+}
+.App h1{
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0;
+}
+.App ul {
+  padding: 0;
+  list-style: none;
+}
+.App input[type="checkbox"]{
+  margin-right: 5px;
+}
+.App input[type="text"]{
+  margin-right: 5px;
+}
+.cmd {
+  font-size: 12px;
+  cursor: pointer;
+  color: #08c;
+  margin-left: 5px;
+}

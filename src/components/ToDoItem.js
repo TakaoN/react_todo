@@ -7,7 +7,7 @@ class ToDoItem extends Component {
       <li>
         <input type="checkbox" onChange={this.props.toggleCheckBox}/>
         <span>{this.props.text}</span>
-        <span onClick={this.props.deleteTodo}>[x]</span>
+        <span className="cmd" onClick={this.props.deleteTodo}>[x]</span>
       </li>
     );
   }
