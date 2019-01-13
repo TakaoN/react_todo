@@ -49,6 +49,16 @@ class App extends Component {
       todos: tempTodos
     }));
   };
+  /* データの永続化 */
+  componentDidUpdate() {
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+  }
+  /* データの読み込み*/
+  componentDidMount() {
+    this.setState({
+      todos: JSON.parse(localStorage.getItem('todos')) || []
+    });
+  }
 
   render() {
     const remaining = this.state.todos.filter(function(todo){
