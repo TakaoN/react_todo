@@ -7,15 +7,18 @@ class App extends Component {
     super();
     this.state = {
       todos: [
-        { id: 1, text: "dataを表示する", isDone: false },
-        { id: 2, text: "簡単な構成をしる", isDone: false }
+        { id: 0, text: "dataを表示する", isDone: false },
+        { id: 1, text: "簡単な構成をしる", isDone: false }
       ],
-      newTodo: { text: '' }
+      newTodo: {
+         text: ''
+       }
     };
   };
 
   handleInput = e => {
-    const newId = Math.max.apply(null, this.state.todos.map(t => t.id)) + 1;
+    //const newId = Math.max.apply(null, this.state.todos.map(t => t.id)) + 1;
+    const newId = new Date().getTime().toString(36) + '-' + Math.random().toString(36);
     this.setState({
       newTodo: { id: newId, text: e.target.value, isDone: false }
     });
@@ -56,7 +59,7 @@ class App extends Component {
   /* データの読み込み*/
   componentDidMount() {
     this.setState({
-      todos: JSON.parse(localStorage.getItem('todos'))
+      todos: JSON.parse(localStorage.getItem('todos')) || []
     });
   }
 
