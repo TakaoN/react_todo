@@ -7,8 +7,8 @@ class App extends Component {
     super();
     this.state = {
       todos: [
-        { id: 0, text: "dataを表示する", isDone: false },
-        { id: 1, text: "簡単な構成をしる", isDone: false }
+        { id: 1, text: "dataを表示する", isDone: false },
+        { id: 2, text: "簡単な構成をしる", isDone: false }
       ],
       newTodo: {
          text: ''
@@ -52,11 +52,11 @@ class App extends Component {
       todos: tempTodos
     }));
   };
-  /* データの永続化*/
+  /* データの永続化 */
   componentDidUpdate() {
     localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
-  /* データの読み込み*/
+  /* データの読み込み */
   componentDidMount() {
     this.setState({
       todos: JSON.parse(localStorage.getItem('todos')) || []
@@ -80,6 +80,7 @@ class App extends Component {
                 key={key}
                 toggleCheckBox={this.toggleCheckBox.bind(this, item)}
                 text={item.text}
+                isDone={item.isDone}
                 deleteTodo={this.deleteTodo.bind(this, item)}
               />
             )
